@@ -1,0 +1,71 @@
+<?php
+
+$products = [
+    [
+        'id' => 1,
+        'name' => 'Camera Wi-Fi Full HD',
+        'category' => 'cameras',
+        'price' => 189.90,
+        'badge' => 'Mais vendida',
+        'description' => 'Monitoramento interno com visao noturna, audio bidirecional e acesso pelo celular.',
+        'features' => ['Full HD', 'Visao noturna', 'App mobile'],
+        'image' => 'https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'id' => 2,
+        'name' => 'Camera Bullet Externa',
+        'category' => 'cameras',
+        'price' => 329.90,
+        'badge' => 'Area externa',
+        'description' => 'Camera resistente para fachadas, garagem e pontos de entrada.',
+        'features' => ['IP66', 'Lente 3.6mm', 'Infravermelho'],
+        'image' => 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'id' => 3,
+        'name' => 'Kit DVR 4 Canais',
+        'category' => 'cameras',
+        'price' => 849.90,
+        'badge' => 'Kit completo',
+        'description' => 'Pacote para pequenas empresas com gravacao local e acompanhamento remoto.',
+        'features' => ['4 cameras', 'DVR incluso', 'Acesso remoto'],
+        'image' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'id' => 4,
+        'name' => 'Central de Alarme Smart',
+        'category' => 'alarmes',
+        'price' => 459.90,
+        'badge' => 'Sem fio',
+        'description' => 'Central inteligente para residencias e comercios com controle por aplicativo.',
+        'features' => ['Wi-Fi', 'Sirene', 'Controle remoto'],
+        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'id' => 5,
+        'name' => 'Sensor de Presenca',
+        'category' => 'alarmes',
+        'price' => 89.90,
+        'badge' => 'Essencial',
+        'description' => 'Sensor infravermelho para aumentar a seguranca em ambientes internos.',
+        'features' => ['PIR', 'Baixo consumo', 'Instalacao rapida'],
+        'image' => 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'id' => 6,
+        'name' => 'Fechadura Eletronica',
+        'category' => 'acessos',
+        'price' => 699.90,
+        'badge' => 'Controle de acesso',
+        'description' => 'Acesso por senha e tag para portas residenciais ou salas comerciais.',
+        'features' => ['Senha', 'Tag RFID', 'Alarme antiarrombamento'],
+        'image' => 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=900&q=80',
+    ],
+];
+
+$categories = [
+    'todos' => 'Todos',
+    'cameras' => 'Cameras',
+    'alarmes' => 'Alarmes',
+    'acessos' => 'Acessos',
+];
