@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DER - Solutec</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f6f2;
+      color: #17201b;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #607067;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+      align-items: start;
+    }
+
+    .entity {
+      border: 2px solid #0f7c63;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(23, 32, 27, 0.09);
+      overflow: hidden;
+    }
+
+    .entity h2 {
+      margin: 0;
+      padding: 12px 16px;
+      background: #0f7c63;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .entity ul {
+      margin: 0;
+      padding: 12px 16px 16px;
+      list-style: none;
+    }
+
+    .entity li {
+      padding: 6px 0;
+      border-bottom: 1px solid #e1e6df;
+      font-size: 14px;
+    }
+
+    .entity li:last-child {
+      border-bottom: 0;
+    }
+
+    .pk {
+      font-weight: 800;
+      color: #0f7c63;
+    }
+
+    .fk {
+      color: #8a6815;
+      font-weight: 800;
+    }
+
+    .relationships {
+      margin-top: 28px;
+      border: 1px solid #d7ded4;
+      border-radius: 8px;
+      background: #fff;
+      padding: 20px;
+    }
+
+    .relationships h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .relationships li {
+      margin: 8px 0;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      main {
+        padding: 18px;
+      }
+
+      .entity {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DER - Loja Virtual Solutec</h1>
+    <p class="subtitle">Modelo inicial para venda de cameras, alarmes e produtos de seguranca eletronica.</p>
+
+    <section class="diagram" aria-label="Entidades do DER">
+      <article class="entity">
+        <h2>CLIENTE</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_cliente</li>
+          <li>nome</li>
+          <li>email</li>
+          <li>telefone</li>
+          <li>cpf_cnpj</li>
+          <li>endereco</li>
+        </ul>
+      </article>
+
+      <article class="entity">
+        <h2>CATEGORIA</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_categoria</li>
+          <li>nome</li>
+          <li>descricao</li>
+          <li>status</li>
+        </ul>
+      </article>
+
+      <article class="entity">
+        <h2>PRODUTO</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_produto</li>
+          <li><span class="fk">FK</span> id_categoria</li>
+          <li>nome</li>
+          <li>descricao</li>
+          <li>preco</li>
+          <li>estoque</li>
+          <li>imagem</li>
+        </ul>
+      </article>
+
+      <article class="entity">
+        <h2>PEDIDO</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_pedido</li>
+          <li><span class="fk">FK</span> id_cliente</li>
+          <li>data_pedido</li>
+          <li>status</li>
+          <li>valor_total</li>
+        </ul>
+      </article>
+
+      <article class="entity">
+        <h2>ITEM_PEDIDO</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_item</li>
+          <li><span class="fk">FK</span> id_pedido</li>
+          <li><span class="fk">FK</span> id_produto</li>
+          <li>quantidade</li>
+          <li>preco_unitario</li>
+          <li>subtotal</li>
+        </ul>
+      </article>
+
+      <article class="entity">
+        <h2>FORNECEDOR</h2>
+        <ul>
+          <li><span class="pk">PK</span> id_fornecedor</li>
+          <li>nome_fantasia</li>
+          <li>cnpj</li>
+          <li>telefone</li>
+          <li>email</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="relationships">
+      <h2>Relacionamentos</h2>
+      <ul>
+        <li>CATEGORIA 1:N PRODUTO - uma categoria possui varios produtos.</li>
+        <li>CLIENTE 1:N PEDIDO - um cliente pode realizar varios pedidos.</li>
+        <li>PEDIDO 1:N ITEM_PEDIDO - um pedido possui um ou mais itens.</li>
+        <li>PRODUTO 1:N ITEM_PEDIDO - um produto pode aparecer em varios itens de pedido.</li>
+        <li>FORNECEDOR N:N PRODUTO - pode ser implementado com a tabela PRODUTO_FORNECEDOR em sprint futura.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
